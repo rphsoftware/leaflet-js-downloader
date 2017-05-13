@@ -22,9 +22,9 @@ except:
     print("An error occured while downloading. Program will now quit")
     quit()
 print("Download done without any errors!")
-outimage = input("Output image name?\n")
+out_image = input("Output image name?\n")
 try:
-    stitcher.stitch(x_amount,y_amount,isVerbose,outimage)
+    stitcher.stitch(x_amount, y_amount, isVerbose, out_image)
 except:
     print("An error occured while stitching. Program will now quit!")
     quit()
