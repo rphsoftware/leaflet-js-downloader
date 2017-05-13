@@ -11,8 +11,15 @@ def stitch(x_amount, y_amount, is_verbose, out_image):
             if is_verbose is "V" or is_verbose is "v":
                 print("Stitched : " + str(x) + "_" + str(y) + ".jpg")
     output.save(out_image + ".jpg")
+    cleanup(x_amount, y_amount, is_verbose)
+
+
+def cleanup(x_amount, y_amount, is_verbose):
     for x in range(x_amount):
         for y in range(y_amount):
-            os.remove(str(x) + "_" + str(y) + ".jpg")
-            if is_verbose is "V" or is_verbose is "v":
-                print("Deleted : " + str(x) + "_" + str(y) + ".jpg")
+            try:
+                os.remove(str(x) + "_" + str(y) + ".jpg")
+                if is_verbose is "V" or is_verbose is "v":
+                    print("Deleted : " + str(x) + "_" + str(y) + ".jpg")
+            except:
+                print("Couldn't delete : " + str(x) + "_" + str(y) + ".jpg")
